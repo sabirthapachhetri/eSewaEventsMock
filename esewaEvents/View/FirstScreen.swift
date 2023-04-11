@@ -51,7 +51,7 @@ class FirstScreen: UIViewController {
         view.addSubview(eventVC.view)
         eventVC.view.frame = CGRect(x: 0, y: 0, width: 370, height: 160)
         eventVC.didMove(toParent: self)
-        
+
         // Add constraints to pin totalBalanceVC near the top safe area
         eventVC.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

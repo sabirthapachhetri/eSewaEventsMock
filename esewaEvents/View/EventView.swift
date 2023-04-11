@@ -20,6 +20,7 @@ class EventView: UIViewController {
 
         let titleLabel = UILabel()
         titleLabel.text = "International Conference on Sustainable Water Management (ICBMSE)"
+        titleLabel.textColor = UIColor.black
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +33,7 @@ class EventView: UIViewController {
 
         let locationLabel = UILabel()
         locationLabel.text = "Brikutimandap, Ktm"
+        locationLabel.textColor = UIColor.black
         locationLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -42,7 +44,8 @@ class EventView: UIViewController {
         eventVenueLabel.translatesAutoresizingMaskIntoConstraints = false
 
         let dateTimeLabel = UILabel()
-        dateTimeLabel.text = "29 Mar, 2023, 02:00 PM"
+        dateTimeLabel.text = "28 Mar, 2023, 02:00 PM"
+        dateTimeLabel.textColor = UIColor.black
         dateTimeLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         dateTimeLabel.translatesAutoresizingMaskIntoConstraints = false
 
