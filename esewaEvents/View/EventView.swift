@@ -42,7 +42,7 @@ class EventView: UIViewController {
         eventVenueLabel.translatesAutoresizingMaskIntoConstraints = false
 
         let dateTimeLabel = UILabel()
-        dateTimeLabel.text = "28 Mar, 2023, 02:00 PM"
+        dateTimeLabel.text = "29 Mar, 2023, 02:00 PM"
         dateTimeLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         dateTimeLabel.translatesAutoresizingMaskIntoConstraints = false
 
