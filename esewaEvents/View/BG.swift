@@ -14,7 +14,7 @@ class BG: UIViewController {
 
         // Add a new green view to the top quarter of the screen
         let greenView = UIView()
-        greenView.backgroundColor = UIColor(red: 98/255, green: 225/255, blue: 43/255, alpha: 1.0)
+        greenView.backgroundColor = UIColor(red: 48/255, green: 219/255, blue: 65/255, alpha: 1.0)
         greenView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(greenView)
         
@@ -26,7 +26,7 @@ class BG: UIViewController {
         ])
         
         // Set the remaining background color to #F9FBFC
-        view.backgroundColor = UIColor(red: 249/255, green: 251/255, blue: 252/255, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
         
         // Make the bottom corners of the green view rounded
         greenView.layer.cornerRadius = 60
@@ -41,8 +41,7 @@ class BG: UIViewController {
         navigationItem.leftBarButtonItem = backButton
 
     }
-    
-    
+        
     @objc private func backButtonTapped() {
         // Navigate to another screen/view
         let previousScreen = PreviousScreen()
