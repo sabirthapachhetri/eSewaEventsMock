@@ -16,9 +16,9 @@ struct Ticket {
 
 class TicketSummaryModel {
     let tickets: [Ticket] = [
-        Ticket(name: "Silver Ticket", price: 999),
-        Ticket(name: "Gold Ticket", price: 4999),
-        Ticket(name: "Diamond Ticket", price: 8999)
+        Ticket(name: "Silver Ticket", price: 666),
+        Ticket(name: "Gold Ticket", price: 5999),
+        Ticket(name: "Diamond Ticket", price: 1111)
     ]
     
     let cashBack: Double = 100

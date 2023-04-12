@@ -43,13 +43,13 @@ class FirstScreen: UIViewController {
         NSLayoutConstraint.activate([
             totalBalanceVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             totalBalanceVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            totalBalanceVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -310) // adjust the top spacing as needed
+            totalBalanceVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -330) // adjust the top spacing as needed
                 ])
 
         // Add the EventView as a child view controller
         addChild(eventVC)
         view.addSubview(eventVC.view)
-        eventVC.view.frame = CGRect(x: 0, y: 0, width: 370, height: 160)
+        eventVC.view.frame = CGRect(x: 0, y: 0, width: 370, height: 130)
         eventVC.didMove(toParent: self)
 
         // Add constraints to pin totalBalanceVC near the top safe area
@@ -57,22 +57,21 @@ class FirstScreen: UIViewController {
         NSLayoutConstraint.activate([
             eventVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             eventVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            eventVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 110) // adjust the top spacing as needed
+            eventVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 85) // adjust the top spacing as needed
                 ])
         
-//        // Add the ticket summar as a child view controller
-//        addChild(ticketSummaryVC)
-//        view.addSubview(ticketSummaryVC.view)
-//        ticketSummaryVC.view.frame = CGRect(x: 0, y: 0, width: 390, height: 250)
-//        ticketSummaryVC.didMove(toParent: self)
-//
-//        // Add constraints to pin totalBalanceVC near the top safe area
-//        ticketSummaryVC.view.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            ticketSummaryVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            ticketSummaryVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            ticketSummaryVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -310) // adjust the top spacing as needed
-//                ])
+        // Add the ticket summar as a child view controller
+        addChild(ticketSummaryVC)
+        view.addSubview(ticketSummaryVC.view)
+        ticketSummaryVC.didMove(toParent: self)
+        
+        // Add constraints to pin totalBalanceVC near the top safe area
+        ticketSummaryVC.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            ticketSummaryVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            ticketSummaryVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            ticketSummaryVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 394)
+                ])
 
         
         // Add the contact as a child view controller

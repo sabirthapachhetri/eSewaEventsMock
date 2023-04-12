@@ -164,7 +164,7 @@ class TicketSummaryView: UIViewController {
         NSLayoutConstraint.activate([
             
             containerView.widthAnchor.constraint(equalToConstant: 370),
-            containerView.heightAnchor.constraint(equalToConstant: 250),
+            containerView.heightAnchor.constraint(equalToConstant: 230),
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
@@ -190,5 +190,4 @@ class TicketSummaryView: UIViewController {
             innerHstackView7.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20)
         ])
     }
-
 }
