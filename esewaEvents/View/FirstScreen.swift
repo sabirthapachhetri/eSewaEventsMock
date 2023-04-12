@@ -14,7 +14,7 @@ class FirstScreen: UIViewController {
     let eventVC = EventView()
     let contactVC = ContactView()
     let submitVC = SubmitView()
-
+    let ticketSummaryVC = TicketSummaryView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,21 +23,21 @@ class FirstScreen: UIViewController {
         addChild(bgVC)
         view.addSubview(bgVC.view)
         bgVC.didMove(toParent: self)
-        
+
         // Set the navigation item of the parent view controller to the navigation item of the child view controller
         navigationItem.title = bgVC.navigationItem.title
         navigationItem.leftBarButtonItem = bgVC.navigationItem.leftBarButtonItem
-        
+
         // Set the color of the back button and title to white
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        
+
         // Add the TotalBalance as a child view controller
         addChild(totalBalanceVC)
         view.addSubview(totalBalanceVC.view)
         totalBalanceVC.view.frame = CGRect(x: 0, y: 0, width: 370, height: 70)
         totalBalanceVC.didMove(toParent: self)
-                
+
         // Add constraints to pin totalBalanceVC near the top safe area
         totalBalanceVC.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -45,7 +45,7 @@ class FirstScreen: UIViewController {
             totalBalanceVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             totalBalanceVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -310) // adjust the top spacing as needed
                 ])
-        
+
         // Add the EventView as a child view controller
         addChild(eventVC)
         view.addSubview(eventVC.view)
@@ -60,12 +60,27 @@ class FirstScreen: UIViewController {
             eventVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 110) // adjust the top spacing as needed
                 ])
         
-        // Add the TotalBalance as a child view controller
+//        // Add the ticket summar as a child view controller
+//        addChild(ticketSummaryVC)
+//        view.addSubview(ticketSummaryVC.view)
+//        ticketSummaryVC.view.frame = CGRect(x: 0, y: 0, width: 390, height: 250)
+//        ticketSummaryVC.didMove(toParent: self)
+//
+//        // Add constraints to pin totalBalanceVC near the top safe area
+//        ticketSummaryVC.view.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            ticketSummaryVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            ticketSummaryVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            ticketSummaryVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -310) // adjust the top spacing as needed
+//                ])
+
+        
+        // Add the contact as a child view controller
         addChild(contactVC)
         view.addSubview(contactVC.view)
         contactVC.view.frame = CGRect(x: 0, y: 0, width: 370, height: 70)
         contactVC.didMove(toParent: self)
-                
+
         // Add constraints to pin totalBalanceVC near the top safe area
         contactVC.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -73,13 +88,13 @@ class FirstScreen: UIViewController {
             contactVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contactVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 500)
                 ])
-        
+
         // Add the TotalBalance as a child view controller
         addChild(submitVC)
         view.addSubview(submitVC.view)
         submitVC.view.frame = CGRect(x: 0, y: 0, width: 370, height: 70)
         submitVC.didMove(toParent: self)
-                
+
         // Add constraints to pin totalBalanceVC near the top safe area
         submitVC.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -87,7 +102,7 @@ class FirstScreen: UIViewController {
             submitVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             submitVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 630)
                 ])
-        
+
         }
 }
 
