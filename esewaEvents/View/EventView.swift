@@ -7,44 +7,51 @@
 
 import UIKit
 
-class EventView: UIViewController {
+class EventView: UIViewController, EventsViewDelegate {
+    
+    var presenter: EventsPresenter?
+    
+    var containerView = UIView()
+    var titleLabel = UILabel()
+    var dateLabel = UILabel()
+    var locationLabel = UILabel()
+    var eventVenueLabel = UILabel()
+    var dateTimeLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let containerView = UIView()
+        // Initialize presenter with model and view
+        let presenter = EventsPresenter(view: self, delegate: self)
+        presenter.updateView()
+        
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 20
         containerView.layer.masksToBounds = true
         containerView.translatesAutoresizingMaskIntoConstraints = false
 
-        let titleLabel = UILabel()
-        titleLabel.text = "International Conference on Sustainable Water Management (ICBMSE)"
+//        titleLabel.text = "International Conference on Sustainable Water Management (ICBMSE)"
         titleLabel.textColor = UIColor.black
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        let dateLabel = UILabel()
         dateLabel.text = "Date"
         dateLabel.textColor = UIColor.gray
         dateLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        let locationLabel = UILabel()
-        locationLabel.text = "Brikutimandap, Ktm"
+//        locationLabel.text = "Brikutimandap, Ktm"
         locationLabel.textColor = UIColor.black
         locationLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        let eventVenueLabel = UILabel()
         eventVenueLabel.text = "Event Venue"
         eventVenueLabel.textColor = UIColor.gray
         eventVenueLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         eventVenueLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        let dateTimeLabel = UILabel()
-        dateTimeLabel.text = "28 Mar, 2023, 02:00 PM"
+//        dateTimeLabel.text = "28 Mar, 2023, 02:00 PM"
         dateTimeLabel.textColor = UIColor.black
         dateTimeLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         dateTimeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +77,7 @@ class EventView: UIViewController {
             locationLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             
             eventVenueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25),
-            eventVenueLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -112),
+            eventVenueLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -122),
             
             dateTimeLabel.topAnchor.constraint(equalTo: eventVenueLabel.bottomAnchor, constant: 2),
             dateTimeLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
@@ -78,5 +85,11 @@ class EventView: UIViewController {
         
         view.addSubview(containerView)
         containerView.center = view.center
+    }
+    
+    func updateEvents(name: String, venue: String, dateTime:  String) {
+        titleLabel.text = name
+        dateTimeLabel.text = dateTime
+        locationLabel.text = venue
     }
 }

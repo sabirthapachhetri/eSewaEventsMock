@@ -6,7 +6,6 @@
 //
 import UIKit
 
-
 class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
     
     var presenter: TicketSummaryPresenter?
@@ -31,7 +30,6 @@ class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
         // Initialize presenter with model and view
         let presenter = TicketSummaryPresenter(view: self, delegate: self)
         presenter.updateView()
-        // Create UILabel instances
         
         ticketsSummaryLabel.textColor = .black
         ticketsSummaryLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
