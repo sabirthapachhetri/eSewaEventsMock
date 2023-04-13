@@ -6,85 +6,92 @@
 //
 import UIKit
 
-class TicketSummaryView: UIViewController {
 
+class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
+    
+    var presenter: TicketSummaryPresenter?
+    
+    var ticketsSummaryLabel = UILabel()
+    var silverTicketLabel = UILabel()
+    var silverTicketPriceLabel = UILabel()
+    var goldTicketLabel = UILabel()
+    var goldTicketPriceLabel = UILabel()
+    var diamondTicketLabel = UILabel()
+    var diamondTicketPriceLabel = UILabel()
+    var subtotalLabel = UILabel()
+    var subtotalPriceLabel = UILabel()
+    var cashbackLabel = UILabel()
+    var cashbackPriceLabel = UILabel()
+    var grandTotalLabel = UILabel()
+    var grandTotalPriceLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Initialize presenter with model and view
+        let presenter = TicketSummaryPresenter(view: self, delegate: self)
+        presenter.updateView()
         // Create UILabel instances
-        let ticketsSummaryLabel = UILabel()
-            ticketsSummaryLabel.text = "Tickets Summary (3)"
-            ticketsSummaryLabel.textColor = .black
-            ticketsSummaryLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
-            ticketsSummaryLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let silverTicketLabel = UILabel()
-            silverTicketLabel.text = "Silver Ticket X 1"
-            silverTicketLabel.textColor = .black
-            silverTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            silverTicketLabel.translatesAutoresizingMaskIntoConstraints = false
+        ticketsSummaryLabel.textColor = .black
+        ticketsSummaryLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        ticketsSummaryLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let silverTicketPriceLabel = UILabel()
-            silverTicketPriceLabel.text = "NPR. 999"
-            silverTicketPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            silverTicketPriceLabel.textColor = UIColor.gray
-            silverTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
-                
-        let goldTicketLabel = UILabel()
-            goldTicketLabel.text = "Gold Ticket X 1"
-            goldTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            goldTicketLabel.translatesAutoresizingMaskIntoConstraints = false
+//        silverTicketLabel.text = "Silver Ticket X 1"
+        silverTicketLabel.textColor = .black
+        silverTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        silverTicketLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let goldTicketPriceLabel = UILabel()
-            goldTicketPriceLabel.text = "NPR. 4999"
-            goldTicketPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            goldTicketPriceLabel.textColor = UIColor.gray
-            goldTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
+//        silverTicketPriceLabel.text = "NPR. 999"
+        silverTicketPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        silverTicketPriceLabel.textColor = UIColor.gray
+        silverTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let diamondTicketLabel = UILabel()
-            diamondTicketLabel.text = "Diamond Ticket X 1"
-            diamondTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            diamondTicketLabel.translatesAutoresizingMaskIntoConstraints = false
+//        goldTicketLabel.text = "Gold Ticket X 1"
+        goldTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        goldTicketLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let diamondTicketPriceLabel = UILabel()
-            diamondTicketPriceLabel.text = "NPR. 8999"
-            diamondTicketPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            diamondTicketPriceLabel.textColor = UIColor.gray
-            diamondTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
+//        goldTicketPriceLabel.text = "NPR. 4999"
+        goldTicketPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        goldTicketPriceLabel.textColor = UIColor.gray
+        goldTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let subtotalLabel = UILabel()
-            subtotalLabel.text = "Sub Total"
-            subtotalLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            subtotalLabel.translatesAutoresizingMaskIntoConstraints = false
+//        diamondTicketLabel.text = "Diamond Ticket X 1"
+        diamondTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        diamondTicketLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let subtotalPriceLabel = UILabel()
-            subtotalPriceLabel.text = "NPR. 14978"
-            subtotalPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            subtotalPriceLabel.textColor = UIColor.gray
-            subtotalPriceLabel.translatesAutoresizingMaskIntoConstraints = false
-    
-        let cashbackLabel = UILabel()
-            cashbackLabel.text = "Cashback"
-            cashbackLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            cashbackLabel.textColor = UIColor.green
-            cashbackLabel.translatesAutoresizingMaskIntoConstraints = false
+//        diamondTicketPriceLabel.text = "NPR. 8999"
+        diamondTicketPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        diamondTicketPriceLabel.textColor = UIColor.gray
+        diamondTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let cashbackPriceLabel = UILabel()
-            cashbackPriceLabel.text = "NPR. 100"
-            cashbackPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            cashbackPriceLabel.textColor = UIColor.gray
-            cashbackPriceLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtotalLabel.text = "Sub Total"
+        subtotalLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        subtotalLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let grandTotalLabel = UILabel()
-            grandTotalLabel.text = "Grand Total"
-            grandTotalLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            grandTotalLabel.translatesAutoresizingMaskIntoConstraints = false
+//        subtotalPriceLabel.text = "NPR. 14978"
+        subtotalPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        subtotalPriceLabel.textColor = UIColor.gray
+        subtotalPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let grandTotalPriceLabel = UILabel()
-            grandTotalPriceLabel.text = "NPR. 14878"
-            grandTotalPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-            grandTotalPriceLabel.textColor = UIColor.black
-            grandTotalPriceLabel.translatesAutoresizingMaskIntoConstraints = false
+        cashbackLabel.text = "Cashback"
+        cashbackLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        cashbackLabel.textColor = UIColor.green
+        cashbackLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+//        cashbackPriceLabel.text = "NPR. 100"
+        cashbackPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        cashbackPriceLabel.textColor = UIColor.gray
+        cashbackPriceLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        grandTotalLabel.text = "Grand Total"
+        grandTotalLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        grandTotalLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+//        grandTotalPriceLabel.text = "NPR. 14878"
+        grandTotalPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        grandTotalPriceLabel.textColor = UIColor.black
+        grandTotalPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // Create a new container view
         let containerView = UIView()
@@ -97,7 +104,7 @@ class TicketSummaryView: UIViewController {
         let innerHstackView1 = UIStackView()
         innerHstackView1.translatesAutoresizingMaskIntoConstraints = false
         innerHstackView1.axis = .horizontal
-       
+        
         let innerHstackView2 = UIStackView()
         innerHstackView2.translatesAutoresizingMaskIntoConstraints = false
         innerHstackView2.axis = .horizontal
@@ -190,4 +197,22 @@ class TicketSummaryView: UIViewController {
             innerHstackView7.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20)
         ])
     }
+    
+    func updateTicketSummary(silverTickets: Int, goldTickets: Int, diamondTickets: Int, cashback: Double, subtotal: Double, grandTotal: Double) {
+        ticketsSummaryLabel.text = "Tickets Summary (\(silverTickets + goldTickets + diamondTickets))"
+        
+        silverTicketLabel.text = "Silver Ticket X \(silverTickets)"
+        silverTicketPriceLabel.text = "NPR. \(888 * silverTickets)"
+        
+        goldTicketLabel.text = "Gold Ticket X \(goldTickets)"
+        goldTicketPriceLabel.text = "NPR. \(3999 * goldTickets)"
+        
+        diamondTicketLabel.text = "Diamond Ticket X \(diamondTickets)"
+        diamondTicketPriceLabel.text = "NPR. \(9999 * diamondTickets)"
+        
+        subtotalPriceLabel.text = "NPR. \(subtotal)"
+        cashbackPriceLabel.text = "NPR. \(cashback)"
+        grandTotalPriceLabel.text = "NPR. \(grandTotal)"
+    }
 }
+
