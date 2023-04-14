@@ -57,3 +57,4 @@ class TicketSummaryPresenter {
         return calculateSubtotal() - cashBack
     }
 }
+
