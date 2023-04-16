@@ -9,7 +9,7 @@ import UIKit
 
 class EventView: UIViewController, EventsViewDelegate {
     
-    var presenter: EventsPresenter?
+    var presenter = EventsPresenter()
     
     var containerView = UIView()
     var titleLabel = UILabel()
@@ -22,7 +22,7 @@ class EventView: UIViewController, EventsViewDelegate {
         super.viewDidLoad()
         
         // Initialize presenter with model and view
-        let presenter = EventsPresenter(view: self, delegate: self)
+        presenter.addDelegate(self)
         presenter.updateView()
         
         containerView.backgroundColor = .white
@@ -30,7 +30,6 @@ class EventView: UIViewController, EventsViewDelegate {
         containerView.layer.masksToBounds = true
         containerView.translatesAutoresizingMaskIntoConstraints = false
 
-//        titleLabel.text = "International Conference on Sustainable Water Management (ICBMSE)"
         titleLabel.textColor = UIColor.black
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         titleLabel.numberOfLines = 0
@@ -41,7 +40,6 @@ class EventView: UIViewController, EventsViewDelegate {
         dateLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
 
-//        locationLabel.text = "Brikutimandap, Ktm"
         locationLabel.textColor = UIColor.black
         locationLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +49,6 @@ class EventView: UIViewController, EventsViewDelegate {
         eventVenueLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         eventVenueLabel.translatesAutoresizingMaskIntoConstraints = false
 
-//        dateTimeLabel.text = "28 Mar, 2023, 02:00 PM"
         dateTimeLabel.textColor = UIColor.black
         dateTimeLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         dateTimeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -87,7 +84,7 @@ class EventView: UIViewController, EventsViewDelegate {
         containerView.center = view.center
     }
     
-    func updateEvents(name: String, venue: String, dateTime:  String) {
+    func updateEvents(name: String, venue: String, dateTime:  String, contact: Contact) {
         titleLabel.text = name
         dateTimeLabel.text = dateTime
         locationLabel.text = venue

@@ -7,10 +7,20 @@
 
 import UIKit
 
-class ContactView: UIViewController {
+class ContactView: UIViewController, EventsViewDelegate {
+    
+    let contactNameLabel = UILabel()
+    let nameLabel = UILabel()
+    let phoneLabel = UILabel()
+    
+    var presenter = EventsPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize presenter with model and view
+        presenter.addDelegate(self)
+        presenter.updateView()
         
         let containerView = UIView()
         containerView.backgroundColor = .white
@@ -23,20 +33,17 @@ class ContactView: UIViewController {
         phoneIcon.tintColor = .black
         phoneIcon.translatesAutoresizingMaskIntoConstraints = false
         
-        let contactNameLabel = UILabel()
         contactNameLabel.text = "Contact Person"
         contactNameLabel.textColor = UIColor.gray
         contactNameLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         contactNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let nameLabel = UILabel()
-        nameLabel.text = "Mr. John Doe"
+//        nameLabel.text = "Mr. John Doe"
         nameLabel.textColor = UIColor.black
         nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let phoneLabel = UILabel()
-        phoneLabel.text = "9811234567"
+//        phoneLabel.text = "9811234567"
         phoneLabel.textColor = UIColor.gray
         phoneLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         phoneLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -71,5 +78,10 @@ class ContactView: UIViewController {
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
         ])
+    }
+    
+    func updateEvents(name: String, venue: String, dateTime: String, contact: Contact) {
+        nameLabel.text = contact.personName
+        phoneLabel.text = String(contact.number)
     }
 }

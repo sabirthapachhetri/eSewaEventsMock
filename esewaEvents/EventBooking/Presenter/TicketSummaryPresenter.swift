@@ -10,6 +10,7 @@ class TicketSummaryPresenter {
                              Ticket(name: "Silver", price: 888),
                              Ticket(name: "Silver", price: 888),
                              Ticket(name: "Gold", price: 3999),
+                             Ticket(name: "Gold", price: 3999),
                              Ticket(name: "Diamond", price: 6999)]
     
     let delegate: TicketSummaryViewDelegate?
@@ -26,7 +27,7 @@ class TicketSummaryPresenter {
         let subtotal = calculateSubtotal()
         let grandTotal = calculateGrandTotal(with: cashBack)
         
-        view?.updateTicketSummary(silverTickets: silverTicketCount(), goldTickets: goldTicketCount(), diamondTickets: diamondTicketCount(), cashback: cashBack, subtotal: subtotal, grandTotal: grandTotal)
+        delegate?.updateTicketSummary(silverTickets: silverTicketCount(), goldTickets: goldTicketCount(), diamondTickets: diamondTicketCount(), cashback: cashBack, subtotal: subtotal, grandTotal: grandTotal)
     }
     
     func silverTicketCount() -> Int {

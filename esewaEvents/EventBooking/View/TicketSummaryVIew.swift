@@ -46,6 +46,7 @@ class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
         silverTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         //        goldTicketLabel.text = "Gold Ticket X 1"
+        goldTicketLabel.textColor = .black
         goldTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         goldTicketLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -55,6 +56,7 @@ class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
         goldTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         //        diamondTicketLabel.text = "Diamond Ticket X 1"
+        diamondTicketLabel.textColor = .black
         diamondTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         diamondTicketLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -64,6 +66,7 @@ class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
         diamondTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         subtotalLabel.text = "Sub Total"
+        subtotalLabel.textColor = .black
         subtotalLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         subtotalLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -83,6 +86,7 @@ class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
         cashbackPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         grandTotalLabel.text = "Grand Total"
+        grandTotalLabel.textColor = .black
         grandTotalLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         grandTotalLabel.translatesAutoresizingMaskIntoConstraints = false
         
