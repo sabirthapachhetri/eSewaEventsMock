@@ -7,11 +7,11 @@
 
 import UIKit
 
-class BG: UIViewController {
-
+class EventsBG: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Add a new green view to the top quarter of the screen
+        
         let greenView = UIView()
         greenView.backgroundColor = UIColor(red: 48/255, green: 219/255, blue: 65/255, alpha: 1.0)
         view.addSubview(greenView)
@@ -25,26 +25,11 @@ class BG: UIViewController {
             greenView.heightAnchor.constraint(equalToConstant: 358)
         ])
         
-        // set the remaining background color to #F9FBFC
         view.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
         
-        // make the bottom corners of the green view rounded
         greenView.layer.cornerRadius = 60
-//        greenView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        greenView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
-        // title to navigation bar
-        navigationItem.title = "Event Booking"
-        
-        // add back button
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonTapped))
-        backButton.setTitlePositionAdjustment(UIOffset(horizontal: -128, vertical: 0), for: .default) // Adjust the title position
-        navigationItem.leftBarButtonItem = backButton
-
-    }
-        
-    @objc private func backButtonTapped() {
-        // navigate to another screen/view
-        let secondPage = SecondPage()
-        navigationController?.pushViewController(secondPage, animated: true)
+        navigationItem.title = "Events"
     }
 }

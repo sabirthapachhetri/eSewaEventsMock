@@ -90,7 +90,7 @@ class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
         grandTotalLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         grandTotalLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        //        grandTotalPriceLabel.text = "NPR. 14878"
+//                grandTotalPriceLabel.text = "NPR. 14878"
         grandTotalPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         grandTotalPriceLabel.textColor = UIColor.black
         grandTotalPriceLabel.translatesAutoresizingMaskIntoConstraints = false
