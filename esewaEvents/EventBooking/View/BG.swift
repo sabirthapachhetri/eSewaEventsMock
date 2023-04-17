@@ -21,7 +21,7 @@ class BG: UIViewController {
             greenView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300),
             greenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             greenView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            greenView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+//            greenView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             greenView.heightAnchor.constraint(equalToConstant: 358)
         ])
         
