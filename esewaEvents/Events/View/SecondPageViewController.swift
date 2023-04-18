@@ -1,10 +1,3 @@
-//
-//  SecondPageViewController.swift
-//  esewaEvents
-//
-//  Created by Sabir's MacBook on 4/17/23.
-//
-
 import UIKit
 
 class SecondPageViewController: UIViewController {
@@ -23,12 +16,9 @@ class SecondPageViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
         navigationItem.title = "Events"
-
-
-//        UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
-
 
          // pin the table view to the main view of the view controller
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,6 +30,7 @@ class SecondPageViewController: UIViewController {
         ])
 
         tableView.register(AdBannerTableViewCell.self, forCellReuseIdentifier: AdBannerTableViewCell.reuseIdentifier)
+        tableView.register(UpcomingEventsTableViewCell.self, forCellReuseIdentifier: UpcomingEventsTableViewCell.reuseIdentifier)
     }
     
     private func addSearchBar() {
@@ -53,24 +44,38 @@ class SecondPageViewController: UIViewController {
 
 extension SecondPageViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return ""
+        } else if section == 1 {
+            return "Upcoming Events"
+        } else {
+            return ""
+        }
+                    
+     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AdBannerTableViewCell.reuseIdentifier, for: indexPath) as! AdBannerTableViewCell
-        cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
-        return cell
-    }
-
-
-
-}
-
-extension SecondPageViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: AdBannerTableViewCell.reuseIdentifier, for: indexPath) as! AdBannerTableViewCell
+            cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingEventsTableViewCell.reuseIdentifier, for: indexPath) as! UpcomingEventsTableViewCell
+            cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
+            return cell
+        }
     }
 }
+    
+    extension SecondPageViewController: UITableViewDelegate {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+        }
+    }

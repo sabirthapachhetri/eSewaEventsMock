@@ -21,6 +21,7 @@
 		5C6C292F29E5598200441705 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C292E29E5598200441705 /* SwiftUIView.swift */; };
 		5C6C293129E5739F00441705 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C293029E5739F00441705 /* ContactView.swift */; };
 		5C6C293329E575B400441705 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C293229E575B400441705 /* SubmitView.swift */; };
+		5C7E74D929EE62690085B610 /* UpcomingEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */; };
 		5CC0766129E664D900B7E7AD /* TicketSummaryVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0766029E664D900B7E7AD /* TicketSummaryVIew.swift */; };
 		5CC9A24829E7B8B5007F3AB4 /* TicketSummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9A24729E7B8B5007F3AB4 /* TicketSummaryPresenter.swift */; };
 		5CC9A24A29E7FBF4007F3AB4 /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9A24929E7FBF4007F3AB4 /* EventsModel.swift */; };
@@ -45,6 +46,7 @@
 		5C6C292E29E5598200441705 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		5C6C293029E5739F00441705 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		5C6C293229E575B400441705 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
+		5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsTableViewCell.swift; sourceTree = "<group>"; };
 		5CC0766029E664D900B7E7AD /* TicketSummaryVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSummaryVIew.swift; sourceTree = "<group>"; };
 		5CC9A24729E7B8B5007F3AB4 /* TicketSummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSummaryPresenter.swift; sourceTree = "<group>"; };
 		5CC9A24929E7FBF4007F3AB4 /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
@@ -77,8 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				5C078D1929EBD987006F04EE /* EventsBG.swift */,
-				5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */,
 				5C32135729ED49FA00413604 /* SecondPageViewController.swift */,
+				5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */,
+				5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				5CCA7EE229E66F590049C143 /* TicketSummaryModel.swift in Sources */,
 				5C6C293129E5739F00441705 /* ContactView.swift in Sources */,
 				5C6C292B29E5539100441705 /* BG.swift in Sources */,
+				5C7E74D929EE62690085B610 /* UpcomingEventsTableViewCell.swift in Sources */,
 				5C6C291029E524B700441705 /* SceneDelegate.swift in Sources */,
 				5CC9A24C29E7FCCD007F3AB4 /* EventsPresenter.swift in Sources */,
 				5C078D1A29EBD987006F04EE /* EventsBG.swift in Sources */,
@@ -402,7 +406,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,7 +437,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
