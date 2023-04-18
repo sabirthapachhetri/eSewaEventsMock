@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		5C078D1A29EBD987006F04EE /* EventsBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C078D1929EBD987006F04EE /* EventsBG.swift */; };
-		5C078D1C29EBE0F4006F04EE /* SeachBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C078D1B29EBE0F4006F04EE /* SeachBarVC.swift */; };
-		5C078D1E29EBF506006F04EE /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C078D1D29EBF506006F04EE /* EventsVC.swift */; };
+		5C32135829ED49FA00413604 /* SecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C32135729ED49FA00413604 /* SecondPageViewController.swift */; };
+		5C32135A29ED4BEE00413604 /* AdBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */; };
 		5C6C290E29E524B700441705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C290D29E524B700441705 /* AppDelegate.swift */; };
 		5C6C291029E524B700441705 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C290F29E524B700441705 /* SceneDelegate.swift */; };
 		5C6C291229E524B700441705 /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C291129E524B700441705 /* FirstScreen.swift */; };
 		5C6C291729E524B900441705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6C291629E524B900441705 /* Assets.xcassets */; };
 		5C6C291A29E524B900441705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6C291829E524B900441705 /* LaunchScreen.storyboard */; };
-		5C6C292429E531EB00441705 /* SecondPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C292329E531EB00441705 /* SecondPage.swift */; };
 		5C6C292929E54F4100441705 /* TotalBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C292829E54F4000441705 /* TotalBalance.swift */; };
 		5C6C292B29E5539100441705 /* BG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C292A29E5539100441705 /* BG.swift */; };
 		5C6C292D29E5595600441705 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C292C29E5595600441705 /* EventView.swift */; };
@@ -31,8 +30,8 @@
 
 /* Begin PBXFileReference section */
 		5C078D1929EBD987006F04EE /* EventsBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsBG.swift; sourceTree = "<group>"; };
-		5C078D1B29EBE0F4006F04EE /* SeachBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachBarVC.swift; sourceTree = "<group>"; };
-		5C078D1D29EBF506006F04EE /* EventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
+		5C32135729ED49FA00413604 /* SecondPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageViewController.swift; sourceTree = "<group>"; };
+		5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerTableViewCell.swift; sourceTree = "<group>"; };
 		5C6C290A29E524B700441705 /* esewaEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esewaEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6C290D29E524B700441705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C6C290F29E524B700441705 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +39,6 @@
 		5C6C291629E524B900441705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C6C291929E524B900441705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C6C291B29E524B900441705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C6C292329E531EB00441705 /* SecondPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPage.swift; sourceTree = "<group>"; };
 		5C6C292829E54F4000441705 /* TotalBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalBalance.swift; sourceTree = "<group>"; };
 		5C6C292A29E5539100441705 /* BG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BG.swift; sourceTree = "<group>"; };
 		5C6C292C29E5595600441705 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
@@ -78,10 +76,9 @@
 		5C078D1629EBC8C7006F04EE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5C6C292329E531EB00441705 /* SecondPage.swift */,
 				5C078D1929EBD987006F04EE /* EventsBG.swift */,
-				5C078D1B29EBE0F4006F04EE /* SeachBarVC.swift */,
-				5C078D1D29EBF506006F04EE /* EventsVC.swift */,
+				5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */,
+				5C32135729ED49FA00413604 /* SecondPageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,11 +241,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C6C291229E524B700441705 /* FirstScreen.swift in Sources */,
-				5C078D1C29EBE0F4006F04EE /* SeachBarVC.swift in Sources */,
 				5C6C292D29E5595600441705 /* EventView.swift in Sources */,
 				5CC9A24A29E7FBF4007F3AB4 /* EventsModel.swift in Sources */,
+				5C32135829ED49FA00413604 /* SecondPageViewController.swift in Sources */,
+				5C32135A29ED4BEE00413604 /* AdBannerTableViewCell.swift in Sources */,
 				5C6C293329E575B400441705 /* SubmitView.swift in Sources */,
-				5C078D1E29EBF506006F04EE /* EventsVC.swift in Sources */,
 				5C6C292F29E5598200441705 /* SwiftUIView.swift in Sources */,
 				5C6C290E29E524B700441705 /* AppDelegate.swift in Sources */,
 				5CC0766129E664D900B7E7AD /* TicketSummaryVIew.swift in Sources */,
@@ -260,7 +257,6 @@
 				5C078D1A29EBD987006F04EE /* EventsBG.swift in Sources */,
 				5CC9A24829E7B8B5007F3AB4 /* TicketSummaryPresenter.swift in Sources */,
 				5C6C292929E54F4100441705 /* TotalBalance.swift in Sources */,
-				5C6C292429E531EB00441705 /* SecondPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

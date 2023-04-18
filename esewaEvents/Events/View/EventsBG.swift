@@ -18,17 +18,16 @@ class EventsBG: UIViewController {
         
         greenView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            greenView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300),
+            greenView.topAnchor.constraint(equalTo: view.topAnchor, constant: -310),
             greenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             greenView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             greenView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            greenView.heightAnchor.constraint(equalToConstant: 358)
+            greenView.heightAnchor.constraint(equalToConstant: 330)
         ])
         
         view.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
         
-        greenView.layer.cornerRadius = 60
-        greenView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        greenView.layer.cornerRadius = 30
         
         navigationItem.title = "Events"
     }

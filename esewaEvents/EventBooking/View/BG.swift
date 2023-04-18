@@ -30,7 +30,6 @@ class BG: UIViewController {
         
         // make the bottom corners of the green view rounded
         greenView.layer.cornerRadius = 60
-//        greenView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
         // title to navigation bar
         navigationItem.title = "Event Booking"
@@ -44,7 +43,7 @@ class BG: UIViewController {
         
     @objc private func backButtonTapped() {
         // navigate to another screen/view
-        let secondPage = SecondPage()
+        let secondPage = SecondPageViewController()
         navigationController?.pushViewController(secondPage, animated: true)
     }
 }
