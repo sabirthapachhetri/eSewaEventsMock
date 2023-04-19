@@ -55,7 +55,7 @@ class TicketSummaryView: UIViewController, TicketSummaryViewDelegate {
         goldTicketPriceLabel.textColor = UIColor.gray
         goldTicketPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        //        diamondTicketLabel.text = "Diamond Ticket X 1"
+//                diamondTicketLabel.text = "Diamond Ticket X 1"
         diamondTicketLabel.textColor = .black
         diamondTicketLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         diamondTicketLabel.translatesAutoresizingMaskIntoConstraints = false

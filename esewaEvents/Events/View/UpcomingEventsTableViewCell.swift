@@ -3,7 +3,8 @@ import UIKit
 class UpcomingEventsTableViewCell: UITableViewCell {
     
     private let cellReuseIdentifier = "UpcomingEventsTableViewCell"
-
+    static let reuseIdentifier = "UpcomingEventsTableViewCell"
+    
     // Initialize collectionView
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -16,10 +17,7 @@ class UpcomingEventsTableViewCell: UITableViewCell {
         return collectionView
         
     }()
-    
-    // Reuse identifier for the cell
-    static let reuseIdentifier = "UpcomingEventsTableViewCell"
-    
+        
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -38,7 +36,7 @@ class UpcomingEventsTableViewCell: UITableViewCell {
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 80),
-            collectionView.widthAnchor.constraint(equalToConstant: 170)
+//            collectionView.widthAnchor.constraint(equalToConstant: 100)
         ])
         
         // Register cell
@@ -75,8 +73,8 @@ extension UpcomingEventsTableViewCell: UICollectionViewDelegateFlowLayout {
 
 class UpcomingEventCell: UICollectionViewCell {
     
-    let todayLabel = UILabel()
-    let dateLabel = UILabel()
+    var todayLabel = UILabel()
+    var dateLabel = UILabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

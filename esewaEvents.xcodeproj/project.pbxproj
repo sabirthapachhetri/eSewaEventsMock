@@ -10,6 +10,7 @@
 		5C078D1A29EBD987006F04EE /* EventsBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C078D1929EBD987006F04EE /* EventsBG.swift */; };
 		5C32135829ED49FA00413604 /* SecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C32135729ED49FA00413604 /* SecondPageViewController.swift */; };
 		5C32135A29ED4BEE00413604 /* AdBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */; };
+		5C6095E929EFB037000CA4ED /* FeaturedEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6095E829EFB037000CA4ED /* FeaturedEventsTableViewCell.swift */; };
 		5C6C290E29E524B700441705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C290D29E524B700441705 /* AppDelegate.swift */; };
 		5C6C291029E524B700441705 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C290F29E524B700441705 /* SceneDelegate.swift */; };
 		5C6C291229E524B700441705 /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C291129E524B700441705 /* FirstScreen.swift */; };
@@ -33,6 +34,7 @@
 		5C078D1929EBD987006F04EE /* EventsBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsBG.swift; sourceTree = "<group>"; };
 		5C32135729ED49FA00413604 /* SecondPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageViewController.swift; sourceTree = "<group>"; };
 		5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerTableViewCell.swift; sourceTree = "<group>"; };
+		5C6095E829EFB037000CA4ED /* FeaturedEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedEventsTableViewCell.swift; sourceTree = "<group>"; };
 		5C6C290A29E524B700441705 /* esewaEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esewaEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6C290D29E524B700441705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C6C290F29E524B700441705 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				5C32135729ED49FA00413604 /* SecondPageViewController.swift */,
 				5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */,
 				5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */,
+				5C6095E829EFB037000CA4ED /* FeaturedEventsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				5C6C290E29E524B700441705 /* AppDelegate.swift in Sources */,
 				5CC0766129E664D900B7E7AD /* TicketSummaryVIew.swift in Sources */,
 				5CCA7EE229E66F590049C143 /* TicketSummaryModel.swift in Sources */,
+				5C6095E929EFB037000CA4ED /* FeaturedEventsTableViewCell.swift in Sources */,
 				5C6C293129E5739F00441705 /* ContactView.swift in Sources */,
 				5C6C292B29E5539100441705 /* BG.swift in Sources */,
 				5C7E74D929EE62690085B610 /* UpcomingEventsTableViewCell.swift in Sources */,
