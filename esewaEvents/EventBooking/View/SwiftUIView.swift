@@ -6,41 +6,33 @@ struct SwiftUIView: View {
             Color.gray
                 .ignoresSafeArea()
             VStack {
-                Image("appleEvent")
+                Image("jackSonni")
                     .resizable()
                 Spacer()
 
                 VStack(alignment: .leading) {
-                    Text("WWDC 2023")
-                        .font(.title)
-                        .fontWeight(.bold)
+                    
+                    Text("TRADE").foregroundColor(Color.white)
+                        .padding()
+                        .background(Color.green)
+                        .cornerRadius(10)
+
+                    
+                    Text("Dire Straits Live")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                         .foregroundColor(.black)
                         .padding(.trailing, 70)
+                        .padding(.bottom, -4)
+
                     
-                    Text("FRI, 24 - SUN, 26 MAR 2023")
+                    Text("24 - 26 MAR 2023")
                         .font(.subheadline)
                         .fontWeight(.medium)
                         .foregroundColor(.green)
                         .padding(.bottom, 13)
                     
-                    Text("Apple Park, California")
-                        .fontWeight(.medium)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                    HStack {
-                        Text("Rs. 800")
-                            .font(.title3)
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                                                
-                        Spacer()
 
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.system(size: 30))
-                        Image(systemName: "heart")
-                            .font(.system(size: 30))
-                    }
-                    .padding(.top, 34)
                 }
                 .padding(.bottom, 13)
                 .padding(.leading, 20)
@@ -48,7 +40,7 @@ struct SwiftUIView: View {
             }
             .background(Color.white)
             .cornerRadius(40)
-            .frame(width: 280, height: 350)
+            .frame(width: 280, height: 300)
         }
     }
 }

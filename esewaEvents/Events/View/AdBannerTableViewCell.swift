@@ -12,9 +12,7 @@ class AdBannerTableViewCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
-        collectionView.showsHorizontalScrollIndicator = false
-        return collectionView
-        
+        return collectionView        
     }()
     
     // Reuse identifier for the cell

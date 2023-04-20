@@ -18,6 +18,7 @@ class SecondPageViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
+        tableView.showsVerticalScrollIndicator = false
         navigationItem.title = "Events"
 
          // pin the table view to the main view of the view controller
@@ -32,6 +33,7 @@ class SecondPageViewController: UIViewController {
         tableView.register(AdBannerTableViewCell.self, forCellReuseIdentifier: AdBannerTableViewCell.reuseIdentifier)
         tableView.register(UpcomingEventsTableViewCell.self, forCellReuseIdentifier: UpcomingEventsTableViewCell.reuseIdentifier)
         tableView.register(FeaturedEventsTableViewCell.self, forCellReuseIdentifier: FeaturedEventsTableViewCell.reuseIdentifier)
+        tableView.register(NewEventsTableViewCell.self, forCellReuseIdentifier: NewEventsTableViewCell.reuseIdentifier)
     }
     
     private func addSearchBar() {
@@ -45,7 +47,7 @@ class SecondPageViewController: UIViewController {
 
 extension SecondPageViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -56,8 +58,10 @@ extension SecondPageViewController: UITableViewDataSource {
             return ""
         } else if section == 1 {
             return "Upcoming Events"
-        } else {
+        } else if section == 2 {
             return "🔥 Featured Events"
+        } else {
+            return "📅 New Events"
         }
                     
      }
@@ -71,8 +75,12 @@ extension SecondPageViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingEventsTableViewCell.reuseIdentifier, for: indexPath) as! UpcomingEventsTableViewCell
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
-        } else {
+        } else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: FeaturedEventsTableViewCell.reuseIdentifier, for: indexPath) as! FeaturedEventsTableViewCell
+            cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewEventsTableViewCell.reuseIdentifier, for: indexPath) as! NewEventsTableViewCell
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
         }
