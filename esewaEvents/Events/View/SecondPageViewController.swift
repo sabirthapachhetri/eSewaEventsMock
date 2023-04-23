@@ -34,6 +34,7 @@ class SecondPageViewController: UIViewController {
         tableView.register(UpcomingEventsTableViewCell.self, forCellReuseIdentifier: UpcomingEventsTableViewCell.reuseIdentifier)
         tableView.register(FeaturedEventsTableViewCell.self, forCellReuseIdentifier: FeaturedEventsTableViewCell.reuseIdentifier)
         tableView.register(NewEventsTableViewCell.self, forCellReuseIdentifier: NewEventsTableViewCell.reuseIdentifier)
+        tableView.register(ArtistsTableViewCell.self, forCellReuseIdentifier: ArtistsTableViewCell.reuseIdentifier)
     }
     
     private func addSearchBar() {
@@ -47,40 +48,49 @@ class SecondPageViewController: UIViewController {
 
 extension SecondPageViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        switch section {
+        case 0:
             return ""
-        } else if section == 1 {
+        case 1:
             return "Upcoming Events"
-        } else if section == 2 {
+        case 2:
             return "🔥 Featured Events"
-        } else {
+        case 3:
             return "📅 New Events"
+        case 4:
+            return "🎙️ Artists"
+        default:
+            return nil
         }
-                    
      }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        switch indexPath.section {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: AdBannerTableViewCell.reuseIdentifier, for: indexPath) as! AdBannerTableViewCell
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
-        } else if indexPath.section == 1 {
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingEventsTableViewCell.reuseIdentifier, for: indexPath) as! UpcomingEventsTableViewCell
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
-        } else if indexPath.section == 2 {
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: FeaturedEventsTableViewCell.reuseIdentifier, for: indexPath) as! FeaturedEventsTableViewCell
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
-        } else {
+        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewEventsTableViewCell.reuseIdentifier, for: indexPath) as! NewEventsTableViewCell
+            cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ArtistsTableViewCell.reuseIdentifier, for: indexPath) as! ArtistsTableViewCell
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
         }

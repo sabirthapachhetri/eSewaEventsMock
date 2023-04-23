@@ -9,7 +9,7 @@ import UIKit
 
 class EventView: UIViewController, EventsViewDelegate {
     
-    var presenter = EventsPresenter()
+    var presenter = EventsBookingPresenter()
     
     var containerView = UIView()
     var titleLabel = UILabel()

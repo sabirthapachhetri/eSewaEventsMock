@@ -32,7 +32,7 @@ protocol EventsViewDelegate: AnyObject {
 //    }
 //}
 
-class EventsPresenter {
+class EventsBookingPresenter {
     
     var events = Events(name: "International Conference on Sustainable Water Management (ICBMSE)",
                         venue: "Durbarmarg, Ktm",

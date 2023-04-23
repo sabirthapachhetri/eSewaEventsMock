@@ -13,7 +13,7 @@ class ContactView: UIViewController, EventsViewDelegate {
     let nameLabel = UILabel()
     let phoneLabel = UILabel()
     
-    var presenter = EventsPresenter()
+    var presenter = EventsBookingPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()

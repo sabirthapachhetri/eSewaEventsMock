@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class EventsBG: UIViewController {
     
     override func viewDidLoad() {

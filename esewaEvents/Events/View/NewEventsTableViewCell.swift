@@ -16,7 +16,6 @@ class NewEventsTableViewCell: UITableViewCell {
         layout.itemSize = CGSize(width: self.frame.width/2 - 10 , height: self.frame.width/2 - 10)
         layout.minimumInteritemSpacing = 10
 
-//        layout.minimumInteritemSpacing = 10
         let collectionViews = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionViews.translatesAutoresizingMaskIntoConstraints = false
 
@@ -35,7 +34,7 @@ class NewEventsTableViewCell: UITableViewCell {
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 460),
+            collectionView.heightAnchor.constraint(equalToConstant: 410),
 //            collectionView.widthAnchor.constraint(equalToConstant: 350)
         ])
 
