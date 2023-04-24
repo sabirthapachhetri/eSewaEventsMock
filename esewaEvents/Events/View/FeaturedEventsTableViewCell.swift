@@ -108,8 +108,10 @@ class FeaturedEventCell: UICollectionViewCell {
         contentView.addSubview(eventImageView)
 
 //        titleLabel.text = "WWDC 2023"
-        titleLabel.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+        titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         titleLabel.textColor = .black
+        titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
 
@@ -119,7 +121,7 @@ class FeaturedEventCell: UICollectionViewCell {
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(dateLabel)
 
-        locationLabel.text = "Apple Park, California"
+//        locationLabel.text = "Apple Park, California"
         locationLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         locationLabel.textColor = .gray
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -151,10 +153,12 @@ class FeaturedEventCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: eventImageView.bottomAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            titleLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: 0)
         ])
 
         NSLayoutConstraint.activate([
-            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
@@ -188,6 +192,7 @@ class FeaturedEventCell: UICollectionViewCell {
     func setupViewWithData(model: EmbeddedEvents) {
         titleLabel.text = model.name
         dateLabel.text = model.dates?.start?.localDate
+        locationLabel.text = model
     }
 
 
