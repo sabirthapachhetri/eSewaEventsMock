@@ -1,17 +1,20 @@
 import UIKit
 
-class SecondPageViewController: UIViewController {
+class SecondPageViewController: UIViewController, EventViewDelegate {
 
     let tableView = UITableView()
     let searchController = UISearchController(searchResultsController: nil)
+    var presenter: EventsPresenter?
+    var eventsData: EventsDataModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         addSearchBar()
-        // Do any additional setup after loading the view.
+        presenter = EventsPresenter(delegate: self)
+        presenter?.fetch()
     }
-
+    
     private func setupViews() {
         view.addSubview(tableView)
         tableView.delegate = self
@@ -44,6 +47,14 @@ class SecondPageViewController: UIViewController {
         searchController.searchBar.placeholder = "What are you searching for?"
         searchController.searchBar.tintColor = .white
     }
+    
+    func didFetchModel(with model: EventsDataModel?) {
+        // update the table view cell func call with the model from the api
+        eventsData = model
+        // reload the table view data
+        tableView.reloadData()
+    }
+    
 }
 
 extension SecondPageViewController: UITableViewDataSource {
@@ -83,6 +94,9 @@ extension SecondPageViewController: UITableViewDataSource {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: FeaturedEventsTableViewCell.reuseIdentifier, for: indexPath) as! FeaturedEventsTableViewCell
+            if let model = eventsData?.embedded?.events {
+                cell.setupViewWithData(model: model)
+            }
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
         case 3:

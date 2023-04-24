@@ -3,7 +3,8 @@ import UIKit
 class FeaturedEventsTableViewCell: UITableViewCell {
 
     private let cellReuseIdentifier = "FeaturedEventsTableViewCell"
-
+    var events: [EmbeddedEvents]?
+    
     // Initialize collectionView
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -16,25 +17,13 @@ class FeaturedEventsTableViewCell: UITableViewCell {
 
     }()
     
-//    var collectionView: UICollectionView!
-
     // Reuse identifier for the cell
     static let reuseIdentifier = "FeaturedEventsTableViewCell"
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .vertical
-//        layout.itemSize = CGSize(width: self.frame.width/2 - 10, height: self.frame.width/2 - 10)
-//        layout.minimumInteritemSpacing = 10
 
-//        layout.minimumInteritemSpacing = 10
-//        let collectionViews = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        collectionViews.translatesAutoresizingMaskIntoConstraints = false
-//        collectionViews.showsHorizontalScrollIndicator = false
-        
         // Add the collectionView to the contentView
-//        self.collectionView = collectionViews
         contentView.addSubview(collectionView)
         setupCollectionView()
 
@@ -63,6 +52,12 @@ class FeaturedEventsTableViewCell: UITableViewCell {
     private func setupCollectionView() {
         collectionView.backgroundColor = .clear
     }
+    
+    func setupViewWithData(model: [EmbeddedEvents]?) {
+        self.events = model
+        collectionView.reloadData()
+    }
+    
 }
 
 extension FeaturedEventsTableViewCell: UICollectionViewDataSource {
@@ -73,6 +68,10 @@ extension FeaturedEventsTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! FeaturedEventCell
+        if let item = events?[indexPath.row] {
+             // call func to setup the collection view cell data
+             cell.setupViewWithData(model: item)
+        }
         return cell
     }
 }
@@ -108,13 +107,13 @@ class FeaturedEventCell: UICollectionViewCell {
         eventImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(eventImageView)
 
-        titleLabel.text = "WWDC 2023"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+//        titleLabel.text = "WWDC 2023"
+        titleLabel.font = UIFont.systemFont(ofSize: 10, weight: .bold)
         titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
 
-        dateLabel.text = "FRI, 24 - SUN, 26 MAR 2023"
+//        dateLabel.text = "FRI, 24 - SUN, 26 MAR 2023"
         dateLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         dateLabel.textColor = UIColor(red: 48/255, green: 219/255, blue: 65/255, alpha: 1.0)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -183,7 +182,12 @@ class FeaturedEventCell: UICollectionViewCell {
             favoriteButton.leadingAnchor.constraint(equalTo: shareButton.trailingAnchor, constant: -20),
             favoriteButton.bottomAnchor.constraint(equalTo: shareButton.bottomAnchor)
         ])
-
+    }
+    
+    // create the setup func
+    func setupViewWithData(model: EmbeddedEvents) {
+        titleLabel.text = model.name
+        dateLabel.text = model.dates?.start?.localDate
     }
 
 

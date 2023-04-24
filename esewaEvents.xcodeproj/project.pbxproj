@@ -103,9 +103,9 @@
 			children = (
 				5C078D1929EBD987006F04EE /* EventsBG.swift */,
 				5C32135729ED49FA00413604 /* SecondPageViewController.swift */,
+				5C6095E829EFB037000CA4ED /* FeaturedEventsTableViewCell.swift */,
 				5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */,
 				5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */,
-				5C6095E829EFB037000CA4ED /* FeaturedEventsTableViewCell.swift */,
 				5CC6B6EF29F0F10500FEA28C /* NewEventsTableViewCell.swift */,
 				5CC6B6F129F1319400FEA28C /* ArtistsTableViewCell.swift */,
 			);

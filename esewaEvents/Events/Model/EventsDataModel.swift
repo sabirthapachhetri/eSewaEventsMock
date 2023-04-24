@@ -11,11 +11,15 @@ import SwiftyJSON
 
 struct EventsDataModel {
     var embedded: Embedded?
+    
+    init(json: JSON) {
+        self.embedded = Embedded(json: json["_embedded"])
+    }
 }
 
 struct Embedded {
     var events: [EmbeddedEvents]?
-    
+
     init(json: JSON) {
         self.events = json["events"].arrayValue.map { // for array
             EmbeddedEvents(json: $0)
@@ -28,17 +32,17 @@ struct EmbeddedEvents {
     var images: [EventsImages]?
     var dates: Dates?
     var priceRanges: [PriceRanges]?
-    
+
     init(json: JSON) {
-        
+
         self.name = json["name"].string
-        
+
         self.images = json["images"].arrayValue.map { // for array
             EventsImages(json: $0)
         }
-        
+
         self.dates = Dates(json: json["dates"])  // for json
-        
+
         self.priceRanges = json["priceRanges"].arrayValue.map { // for array
             PriceRanges(json: $0)
         }
@@ -50,13 +54,14 @@ struct EventsImages {
     var url: String?
     var width: Int?
     var height: Int?
-    
+
     init(json: JSON) {
         self.ratio = json["ratio"].string  // for each properties
         self.url = json["url"].string
         self.width = json["width"].int
         self.height = json["height"].int
         
+
     }
 }
 
@@ -71,7 +76,7 @@ struct Start {
     var localDate: String?
     var localTime: String?
     var dateTime: String?
-    
+
     init(json: JSON) {
         self.localDate = json["localDate"].string
         self.localTime = json["localTime"].string
@@ -84,7 +89,7 @@ struct PriceRanges {
     var currency: String?
     var min: Double?
     var max: Double?
-    
+
     init(json: JSON) {
         self.type = json["type"].string
         self.currency = json["currency"].string
@@ -92,10 +97,4 @@ struct PriceRanges {
         self.max = json["max"].double
     }
 }
-
-
-
-
-
-
 
