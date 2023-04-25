@@ -1,10 +1,3 @@
-//
-//  EventsDataModel.swift
-//  esewaEvents
-//
-//  Created by Sabir's MacBook on 4/23/23.
-//
-
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -32,6 +25,8 @@ struct EmbeddedEvents {
     var images: [EventsImages]?
     var dates: Dates?
     var priceRanges: [PriceRanges]?
+    var embedded: InnerEmbedded?
+    
 
     init(json: JSON) {
 
@@ -46,6 +41,9 @@ struct EmbeddedEvents {
         self.priceRanges = json["priceRanges"].arrayValue.map { // for array
             PriceRanges(json: $0)
         }
+        
+        self.embedded = InnerEmbedded(json: json["_embedded"])
+        
     }
 }
 
@@ -98,3 +96,20 @@ struct PriceRanges {
     }
 }
 
+struct InnerEmbedded {
+    var venues: [Venues]?
+    
+    init(json: JSON) {
+        self.venues = json["venues"].arrayValue.map { // for array
+            Venues(json: $0)
+    }
+  }
+}
+
+struct Venues {
+    var name: String?
+    
+    init(json: JSON) {
+        self.name = json["name"].string
+    }
+}

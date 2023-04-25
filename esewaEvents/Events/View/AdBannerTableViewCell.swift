@@ -1,7 +1,7 @@
 import UIKit
 
 class AdBannerTableViewCell: UITableViewCell {
-    
+
     private let cellReuseIdentifier = "AdBannerTableViewCell"
 
     // Initialize collectionView
@@ -12,23 +12,23 @@ class AdBannerTableViewCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
-        return collectionView        
+        return collectionView
     }()
-    
+
     // Reuse identifier for the cell
     static let reuseIdentifier = "AdBannerTableViewCell"
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         // Add the collectionView to the contentView
         contentView.addSubview(collectionView)
         setupCollectionView()
-        
+
         // Set the dataSource and delegate of the collectionView
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+
         // Activate constraints
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -37,11 +37,11 @@ class AdBannerTableViewCell: UITableViewCell {
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 170)
         ])
-        
+
         // Register cell
         collectionView.register(EventCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -54,11 +54,13 @@ class AdBannerTableViewCell: UITableViewCell {
 extension AdBannerTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! EventCell
+        // setup collection cell with image(String) "image\(indexPath.row + 1)"
+        cell.setupCollectionCell(with: "Image\(indexPath.row + 1)")
         return cell
     }
 }
@@ -72,31 +74,36 @@ extension AdBannerTableViewCell: UICollectionViewDelegateFlowLayout {
 
 class EventCell: UICollectionViewCell {
 
-    private let imageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "collection"))
-        imageView.contentMode = .scaleToFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 30
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+//    private let imageNames = ["Image2", "Image3", "Image4"]
+    
+    private lazy var bannerImageView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.contentMode = .scaleAspectFill
+        imgView.clipsToBounds = true
+        imgView.layer.cornerRadius = 30
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        return imgView
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        contentView.addSubview(imageView)
+        contentView.addSubview(bannerImageView)
 
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 150)
+            bannerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            bannerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            bannerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            bannerImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            bannerImageView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
 
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // create a setup method that will accept a string (which is the name of the image)
+    func setupCollectionCell(with image: String) {
+        bannerImageView.image = UIImage(named: image)
     }
 }

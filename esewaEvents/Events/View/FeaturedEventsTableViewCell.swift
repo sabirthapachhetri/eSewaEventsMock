@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 class FeaturedEventsTableViewCell: UITableViewCell {
 
@@ -99,7 +100,7 @@ class FeaturedEventCell: UICollectionViewCell {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 40
 
-        eventImageView.image = UIImage(named: "appleEvent")
+//        eventImageView.image = UIImage(named: "appleEvent")
         eventImageView.clipsToBounds = true
         eventImageView.layer.cornerRadius = 40
         eventImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -190,9 +191,14 @@ class FeaturedEventCell: UICollectionViewCell {
     
     // create the setup func
     func setupViewWithData(model: EmbeddedEvents) {
+//        eventImageView. = model.images?.first?.url
+//        if let url = URL(string: model.images?.first?.url) {
+//            eventImageView.load(url: url)
+//        }
+
         titleLabel.text = model.name
         dateLabel.text = model.dates?.start?.localDate
-        locationLabel.text = model
+        locationLabel.text = model.embedded?.venues?.first?.name
     }
 
 

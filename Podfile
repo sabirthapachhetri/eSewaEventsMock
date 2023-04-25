@@ -8,5 +8,5 @@ use_frameworks!
 # Pods for esewaEvents
 pod 'Alamofire', '~> 5.0'
 pod 'SwiftyJSON', '~> 4.0'
-
+pod 'Kingfisher', '~> 7.0'
 end
