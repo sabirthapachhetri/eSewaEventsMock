@@ -31,6 +31,8 @@
 		5CC9A24C29E7FCCD007F3AB4 /* EventsBookingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9A24B29E7FCCD007F3AB4 /* EventsBookingPresenter.swift */; };
 		5CCA7EE229E66F590049C143 /* TicketSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA7EE129E66F590049C143 /* TicketSummaryModel.swift */; };
 		5CCE8B0329F5126600B33E42 /* EventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE8B0229F5126600B33E42 /* EventsPresenter.swift */; };
+		5CD0495429F7B2AC00FD3173 /* UpcomingEventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0495329F7B2AC00FD3173 /* UpcomingEventsModel.swift */; };
+		5CD0495629F7B31900FD3173 /* UpcomingEventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0495529F7B31900FD3173 /* UpcomingEventsPresenter.swift */; };
 		5CF1857F29F5047700EA7BC4 /* EventsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF1857E29F5047700EA7BC4 /* EventsDataModel.swift */; };
 		EFBD2A4A0547BA1FF32BB510 /* Pods_esewaEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B0269ECB4A890CA9C61C1A /* Pods_esewaEvents.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 		5CC9A24B29E7FCCD007F3AB4 /* EventsBookingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsBookingPresenter.swift; sourceTree = "<group>"; };
 		5CCA7EE129E66F590049C143 /* TicketSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSummaryModel.swift; sourceTree = "<group>"; };
 		5CCE8B0229F5126600B33E42 /* EventsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsPresenter.swift; sourceTree = "<group>"; };
+		5CD0495329F7B2AC00FD3173 /* UpcomingEventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsModel.swift; sourceTree = "<group>"; };
+		5CD0495529F7B31900FD3173 /* UpcomingEventsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsPresenter.swift; sourceTree = "<group>"; };
 		5CF1857E29F5047700EA7BC4 /* EventsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataModel.swift; sourceTree = "<group>"; };
 		B3AAD01AFBF0F6DADF66AA0F /* Pods-esewaEvents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esewaEvents.release.xcconfig"; path = "Target Support Files/Pods-esewaEvents/Pods-esewaEvents.release.xcconfig"; sourceTree = "<group>"; };
 		F8B0269ECB4A890CA9C61C1A /* Pods_esewaEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_esewaEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,9 +107,9 @@
 			children = (
 				5C078D1929EBD987006F04EE /* EventsBG.swift */,
 				5C32135729ED49FA00413604 /* SecondPageViewController.swift */,
+				5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */,
 				5C6095E829EFB037000CA4ED /* FeaturedEventsTableViewCell.swift */,
 				5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */,
-				5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */,
 				5CC6B6EF29F0F10500FEA28C /* NewEventsTableViewCell.swift */,
 				5CC6B6F129F1319400FEA28C /* ArtistsTableViewCell.swift */,
 			);
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				5CF1857E29F5047700EA7BC4 /* EventsDataModel.swift */,
+				5CD0495329F7B2AC00FD3173 /* UpcomingEventsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				5CCE8B0229F5126600B33E42 /* EventsPresenter.swift */,
+				5CD0495529F7B31900FD3173 /* UpcomingEventsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -330,7 +336,9 @@
 				5C6C292D29E5595600441705 /* EventView.swift in Sources */,
 				5CC9A24A29E7FBF4007F3AB4 /* EventsModel.swift in Sources */,
 				5C32135829ED49FA00413604 /* SecondPageViewController.swift in Sources */,
+				5CD0495429F7B2AC00FD3173 /* UpcomingEventsModel.swift in Sources */,
 				5C32135A29ED4BEE00413604 /* AdBannerTableViewCell.swift in Sources */,
+				5CD0495629F7B31900FD3173 /* UpcomingEventsPresenter.swift in Sources */,
 				5C6C293329E575B400441705 /* SubmitView.swift in Sources */,
 				5C6C292F29E5598200441705 /* SwiftUIView.swift in Sources */,
 				5C6C290E29E524B700441705 /* AppDelegate.swift in Sources */,

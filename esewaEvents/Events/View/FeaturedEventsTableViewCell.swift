@@ -128,7 +128,7 @@ class FeaturedEventCell: UICollectionViewCell {
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(locationLabel)
 
-        priceLabel.text = "Rs. 800"
+//        priceLabel.text = "Rs. 800"
         priceLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         priceLabel.textColor = .gray
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -191,14 +191,15 @@ class FeaturedEventCell: UICollectionViewCell {
     
     // create the setup func
     func setupViewWithData(model: EmbeddedEvents) {
-//        eventImageView. = model.images?.first?.url
-//        if let url = URL(string: model.images?.first?.url) {
-//            eventImageView.load(url: url)
-//        }
-
+        
+        if let url = URL(string: model.images?.first?.url ?? "") {
+            eventImageView.kf.setImage(with: url)
+        }
+        
         titleLabel.text = model.name
         dateLabel.text = model.dates?.start?.localDate
         locationLabel.text = model.embedded?.venues?.first?.name
+        priceLabel.text = String(model.priceRanges?.first?.min ?? 0.0)
     }
 
 
