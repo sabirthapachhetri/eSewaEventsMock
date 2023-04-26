@@ -8,9 +8,7 @@
 import UIKit
 
 class BottomSheetViewController: UIViewController {
-    
-//     var onDeleteClicked: (()->())?
-        
+            
     private let bottomSheetView:UIView = {
         let sheetView = UIView ()
         sheetView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +81,8 @@ class BottomSheetViewController: UIViewController {
     
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCancelImageTap))
         cancelImage.addGestureRecognizer(tapGesture)
-        cancelButton.addTarget(self, action: #selector(dismissVc), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(handleCancelImageTap), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
     }
     
     func setupView() {
@@ -93,11 +92,12 @@ class BottomSheetViewController: UIViewController {
     
     @objc func handleCancelImageTap(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
-
-        
     }
-    @objc func dismissVc() {
-        self.dismiss(animated: true)
+    
+    @objc func confirmButtonTapped() {
+        let alert = UIAlertController(title: "Attendance Confirmed", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     func setupConstraints() {
@@ -115,7 +115,7 @@ class BottomSheetViewController: UIViewController {
             bottomSheetView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomSheetView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bottomSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomSheetView.heightAnchor.constraint(equalToConstant: 200),
+            bottomSheetView.heightAnchor.constraint(equalToConstant: 170),
             
             titleLabel.topAnchor.constraint(equalTo: bottomSheetView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor),

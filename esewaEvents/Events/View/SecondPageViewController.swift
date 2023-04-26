@@ -264,10 +264,11 @@ extension SecondPageViewController: UITableViewDataSource {
     }
     
     @objc func handleUpcomingEventsCellTapped(_ sender: UITapGestureRecognizer) {
-        guard let cell = sender.view as? UpcomingEventsTableViewCell else { return }
+        guard sender.view is UpcomingEventsTableViewCell else { return }
         
         let bottomSheetVC = BottomSheetViewController()
-        bottomSheetVC.modalPresentationStyle = .popover
+        bottomSheetVC.modalPresentationStyle = .pageSheet
+        bottomSheetVC.preferredContentSize.height = 50
         present(bottomSheetVC, animated: true)
     }
 }
