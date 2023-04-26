@@ -1,6 +1,6 @@
 //import UIKit
 //
-//class SecondPageViewController: UIViewController, EventViewDelegate {
+//class SecondPageViewController: UIViewController, EventViewDelegate, UpcomingEventsViewDelegate {
 //
 //    let tableView = UITableView()
 //    let searchController = UISearchController(searchResultsController: nil)
@@ -8,7 +8,7 @@
 //    var eventsData: EventsDataModel?
 //
 //    var upcomingEventsPresenter: UpcomingEventsPresenter?
-//    var upcomingEventsData: UpcomingEventsDataModel?
+//    var upcomingEventsData: [UpcomingEventsDataModel]?
 //
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -16,6 +16,10 @@
 //        addSearchBar()
 //        presenter = EventsPresenter(delegate: self)
 //        presenter?.fetch()
+//
+//        // Initialize presenter with model and view
+//        upcomingEventsPresenter = UpcomingEventsPresenter(view: self, delegate: self)
+//        upcomingEventsPresenter?.updateView()
 //    }
 //
 //    private func setupViews() {
@@ -58,6 +62,10 @@
 //        tableView.reloadData()
 //    }
 //
+//    func updateUpcomingEvents(with eventList: [UpcomingEventsDataModel]?) {
+//        upcomingEventsData = eventList
+//        tableView.reloadData()
+//    }
 //}
 //
 //extension SecondPageViewController: UITableViewDataSource {
@@ -93,6 +101,9 @@
 //            return cell
 //        case 1:
 //            let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingEventsTableViewCell.reuseIdentifier, for: indexPath) as! UpcomingEventsTableViewCell
+//            if let model = upcomingEventsData {
+//                cell.setupViewWithData(model: model)
+//            }
 //            cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
 //            return cell
 //        case 2:
@@ -120,11 +131,10 @@
 //        }
 //    }
 
+
 import UIKit
 
 class SecondPageViewController: UIViewController, EventViewDelegate, UpcomingEventsViewDelegate {
-    
-    
     
     let tableView = UITableView()
     let searchController = UISearchController(searchResultsController: nil)
@@ -186,11 +196,6 @@ class SecondPageViewController: UIViewController, EventViewDelegate, UpcomingEve
         tableView.reloadData()
     }
     
-//    func updateUpcomingEvents(with model: UpcomingEventsDataModel?) {
-//        upcomingEventsData = model
-//        tableView.reloadData()
-//    }
-    
     func updateUpcomingEvents(with eventList: [UpcomingEventsDataModel]?) {
         upcomingEventsData = eventList
         tableView.reloadData()
@@ -230,10 +235,15 @@ extension SecondPageViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingEventsTableViewCell.reuseIdentifier, for: indexPath) as! UpcomingEventsTableViewCell
+            cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             if let model = upcomingEventsData {
                 cell.setupViewWithData(model: model)
             }
-            cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
+            
+            // Add tap gesture recognizer to cell
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleUpcomingEventsCellTapped(_:)))
+            cell.addGestureRecognizer(tapGesture)
+            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: FeaturedEventsTableViewCell.reuseIdentifier, for: indexPath) as! FeaturedEventsTableViewCell
@@ -251,6 +261,14 @@ extension SecondPageViewController: UITableViewDataSource {
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
         }
+    }
+    
+    @objc func handleUpcomingEventsCellTapped(_ sender: UITapGestureRecognizer) {
+        guard let cell = sender.view as? UpcomingEventsTableViewCell else { return }
+        
+        let bottomSheetVC = BottomSheetViewController()
+        bottomSheetVC.modalPresentationStyle = .popover
+        present(bottomSheetVC, animated: true)
     }
 }
     

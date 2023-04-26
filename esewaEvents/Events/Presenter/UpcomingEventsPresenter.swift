@@ -8,8 +8,6 @@
 import Foundation
 
 protocol UpcomingEventsViewDelegate: AnyObject {
-//    func updateUpcomingEvents(with model: UpcomingEventsDataModel?)
-    //
     func updateUpcomingEvents(with eventList: [UpcomingEventsDataModel]?)
 }
 

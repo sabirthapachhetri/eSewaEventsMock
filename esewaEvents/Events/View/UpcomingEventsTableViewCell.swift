@@ -117,10 +117,6 @@ class UpcomingEventCell: UICollectionViewCell {
         dateLabel.adjustsFontSizeToFitWidth = true
         dateLabel.minimumScaleFactor = 0.5
         dateLabel.numberOfLines = 1
-//        dateLabel.kerning = 1.9
-//        let attributedString = NSMutableAttributedString(string: "22 Mar, Tue")
-//        attributedString.addAttribute(NSAttributedString.Key.kern, value: 1.9, range: NSRange(location: 0, length: attributedString.length))
-//        dateLabel.attributedText = attributedString
         contentView.addSubview(dateLabel)
         
         todayLabel.translatesAutoresizingMaskIntoConstraints = false

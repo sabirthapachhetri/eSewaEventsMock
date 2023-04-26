@@ -199,7 +199,7 @@ class FeaturedEventCell: UICollectionViewCell {
         titleLabel.text = model.name
         dateLabel.text = model.dates?.start?.localDate
         locationLabel.text = model.embedded?.venues?.first?.name
-        priceLabel.text = String(model.priceRanges?.first?.min ?? 0.0)
+        priceLabel.text = String("$\(model.priceRanges?.first?.min ?? 0.0)")
     }
 
 

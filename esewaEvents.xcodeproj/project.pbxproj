@@ -23,6 +23,7 @@
 		5C6C293129E5739F00441705 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C293029E5739F00441705 /* ContactView.swift */; };
 		5C6C293329E575B400441705 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C293229E575B400441705 /* SubmitView.swift */; };
 		5C7E74D929EE62690085B610 /* UpcomingEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */; };
+		5C94782929F8178F003C214C /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C94782829F8178F003C214C /* BottomSheetViewController.swift */; };
 		5CC0766129E664D900B7E7AD /* TicketSummaryVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0766029E664D900B7E7AD /* TicketSummaryVIew.swift */; };
 		5CC6B6F029F0F10500FEA28C /* NewEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6B6EF29F0F10500FEA28C /* NewEventsTableViewCell.swift */; };
 		5CC6B6F229F1319400FEA28C /* ArtistsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6B6F129F1319400FEA28C /* ArtistsTableViewCell.swift */; };
@@ -57,6 +58,7 @@
 		5C6C293029E5739F00441705 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		5C6C293229E575B400441705 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		5C7E74D829EE62690085B610 /* UpcomingEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsTableViewCell.swift; sourceTree = "<group>"; };
+		5C94782829F8178F003C214C /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		5CC0766029E664D900B7E7AD /* TicketSummaryVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketSummaryVIew.swift; sourceTree = "<group>"; };
 		5CC6B6EF29F0F10500FEA28C /* NewEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventsTableViewCell.swift; sourceTree = "<group>"; };
 		5CC6B6F129F1319400FEA28C /* ArtistsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				5C32135929ED4BEE00413604 /* AdBannerTableViewCell.swift */,
 				5CC6B6EF29F0F10500FEA28C /* NewEventsTableViewCell.swift */,
 				5CC6B6F129F1319400FEA28C /* ArtistsTableViewCell.swift */,
+				5C94782829F8178F003C214C /* BottomSheetViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				5C078D1529EBAB44006F04EE /* Events */,
 				5C6C290D29E524B700441705 /* AppDelegate.swift */,
 				5C6C290F29E524B700441705 /* SceneDelegate.swift */,
+				5C6C292E29E5598200441705 /* SwiftUIView.swift */,
 				5C6C291629E524B900441705 /* Assets.xcassets */,
 				5C6C291829E524B900441705 /* LaunchScreen.storyboard */,
 				5C6C291B29E524B900441705 /* Info.plist */,
@@ -175,7 +179,6 @@
 				5C6C293029E5739F00441705 /* ContactView.swift */,
 				5CC0766029E664D900B7E7AD /* TicketSummaryVIew.swift */,
 				5C6C292829E54F4000441705 /* TotalBalance.swift */,
-				5C6C292E29E5598200441705 /* SwiftUIView.swift */,
 				5C6C293229E575B400441705 /* SubmitView.swift */,
 			);
 			path = View;
@@ -357,6 +360,7 @@
 				5CC9A24829E7B8B5007F3AB4 /* TicketSummaryPresenter.swift in Sources */,
 				5CCE8B0329F5126600B33E42 /* EventsPresenter.swift in Sources */,
 				5C6C292929E54F4100441705 /* TotalBalance.swift in Sources */,
+				5C94782929F8178F003C214C /* BottomSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +507,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,7 +539,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
