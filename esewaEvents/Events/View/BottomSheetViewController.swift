@@ -9,7 +9,7 @@ import UIKit
 
 class BottomSheetViewController: UIViewController {
 
-    var events: [UpcomingEventsDataModel]?
+    var events: UpcomingEventsDataModel?
 
     private let bottomSheetView:UIView = {
         let sheetView = UIView ()
@@ -30,7 +30,7 @@ class BottomSheetViewController: UIViewController {
 
     private let subTitleLabel: UILabel = {
         let subTitleLabel = UILabel()
-//        subTitleLabel.text = "Are you sure you want to attend this event?"
+
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subTitleLabel.textAlignment = .center
         subTitleLabel.font = .systemFont(ofSize: 12, weight: .bold)
@@ -80,11 +80,7 @@ class BottomSheetViewController: UIViewController {
 
         setupView()
         setupConstraints()
-        if let events = events {
-            setupBottomViewWithData(model: events)
-        } else {
-           print("Nil")
-        }
+        subTitleLabel.text = "Are you sure you want to attend this event on \(events?.date ?? "")?"
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCancelImageTap))
         cancelImage.addGestureRecognizer(tapGesture)
@@ -151,10 +147,10 @@ class BottomSheetViewController: UIViewController {
         ])
     }
 
-    func setupBottomViewWithData(model: [UpcomingEventsDataModel]) {
-        guard let event = model.first else { return }
-        subTitleLabel.text = "Are you sure you want to attend this event on \(event.date)?"
-    }
+//    func setupBottomViewWithData(model: [UpcomingEventsDataModel]) {
+//        guard let event = model.first else { return }
+//        subTitleLabel.text = "Are you sure you want to attend this event on \(event.date)?"
+//    }
 }
 
 

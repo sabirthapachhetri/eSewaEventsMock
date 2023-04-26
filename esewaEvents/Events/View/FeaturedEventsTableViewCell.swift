@@ -5,6 +5,7 @@ class FeaturedEventsTableViewCell: UITableViewCell {
 
     private let cellReuseIdentifier = "FeaturedEventsTableViewCell"
     var events: [EmbeddedEvents]?
+    var itemClicked: ((EmbeddedEvents)->())?
     
     // Initialize collectionView
     let collectionView: UICollectionView = {
@@ -74,6 +75,13 @@ extension FeaturedEventsTableViewCell: UICollectionViewDataSource {
              cell.setupViewWithData(model: item)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = events?[indexPath.row]
+        if let item = item {
+            self.itemClicked?(item)
+        }
     }
 }
 

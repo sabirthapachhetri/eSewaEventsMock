@@ -6,6 +6,7 @@ class UpcomingEventsTableViewCell: UITableViewCell {
     static let reuseIdentifier = "UpcomingEventsTableViewCell"
 
     var events: [UpcomingEventsDataModel]?
+    var itemClicked: ((UpcomingEventsDataModel)->())?
 
     // Initialize collectionView
     let collectionView: UICollectionView = {
@@ -81,6 +82,13 @@ extension UpcomingEventsTableViewCell: UICollectionViewDataSource {
 
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = events?[indexPath.row]
+        if let item = item {
+            self.itemClicked?(item)
+        }
+    }
 }
 
 extension UpcomingEventsTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -134,7 +142,7 @@ class UpcomingEventCell: UICollectionViewCell {
 
     // create the setup func
     func setupViewWithData(model: UpcomingEventsDataModel) {
-
+        
         todayLabel.text = model.day
         let attributedString = NSMutableAttributedString(string: model.date)
         attributedString.addAttribute(NSAttributedString.Key.kern, value: 1.9, range: NSRange(location: 0, length: attributedString.length))

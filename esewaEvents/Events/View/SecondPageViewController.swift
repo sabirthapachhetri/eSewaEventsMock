@@ -10,6 +10,8 @@ class SecondPageViewController: UIViewController, EventViewDelegate, UpcomingEve
     var upcomingEventsPresenter: UpcomingEventsPresenter?
     var upcomingEventsData: [UpcomingEventsDataModel]?
     
+    var detailEvents: [EmbeddedEvents]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -20,6 +22,7 @@ class SecondPageViewController: UIViewController, EventViewDelegate, UpcomingEve
         // Initialize presenter with model and view
         upcomingEventsPresenter = UpcomingEventsPresenter(view: self, delegate: self)
         upcomingEventsPresenter?.updateView()
+        
     }
     
     private func setupViews() {
@@ -106,9 +109,13 @@ extension SecondPageViewController: UITableViewDataSource {
                 cell.setupViewWithData(model: model)
             }
             
-            // Add tap gesture recognizer to cell
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleUpcomingEventsCellTapped(_:)))
-            cell.addGestureRecognizer(tapGesture)
+            cell.itemClicked = { item in
+                let vc = BottomSheetViewController()
+                vc.events = item
+                vc.modalPresentationStyle = .pageSheet
+                vc.preferredContentSize.height = 50
+                self.present(vc, animated: true)
+            }
             
             return cell
             
@@ -117,8 +124,14 @@ extension SecondPageViewController: UITableViewDataSource {
             if let model = eventsData?.embedded?.events {
                 cell.setupViewWithData(model: model)
             }
+            cell.itemClicked = { item in
+                let vc = FeaturedEventsDetailedViewController()
+                vc.eventData = item
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
+            
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewEventsTableViewCell.reuseIdentifier, for: indexPath) as! NewEventsTableViewCell
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
@@ -128,17 +141,6 @@ extension SecondPageViewController: UITableViewDataSource {
             cell.backgroundColor = UIColor(red: 237/255.0, green: 238/255.0, blue: 242/255.0, alpha: 1)
             return cell
         }
-    }
-    
-    @objc func handleUpcomingEventsCellTapped(_ sender: UITapGestureRecognizer) {
-        guard sender.view is UpcomingEventsTableViewCell else { return }
-        
-        let bottomSheetVC = BottomSheetViewController()
-        bottomSheetVC.events = upcomingEventsData
-        bottomSheetVC.setupBottomViewWithData(model: upcomingEventsData ?? [])
-        bottomSheetVC.modalPresentationStyle = .pageSheet
-        bottomSheetVC.preferredContentSize.height = 50
-        present(bottomSheetVC, animated: true)
     }
 }
     
