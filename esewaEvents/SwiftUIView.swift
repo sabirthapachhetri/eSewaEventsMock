@@ -2,56 +2,58 @@ import SwiftUI
 
 struct SwiftUIView: View {
     var body: some View {
-            VStack {
-                Text("Attend Event")
-                    .foregroundColor(Color.black)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 1)
-
-                    
-                Text("Are you sure you want to attent this event?")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 13)
-                 
+        VStack(spacing: 15) {
+                Image("ludovico")
+                    .resizable()
+                    .frame(height: 300)
+                Spacer()
+                Text("The Truth About Expo Reality 2079")
+                    .font(.title)
+                    .fontWeight(.bold)
+            
+            VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    Button("Cancel") {
-                        // Add code for the Cancel button action
-                    }
-                    .padding(.leading, 30)
-                    .padding(.trailing, 30)
-                    .padding(.vertical, 10)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .cornerRadius(10)
+                    Text("Booking Date")
+                        .fontWeight(.bold)
+                        .font(.title2)
+                        .foregroundColor(Color.gray)
                     
-//                    Spacer()
-                    
-                    Button("Confirm") {
-                        // Add code for the Confirm button action
-                    }
-                    .padding(.leading, 30)
-                    .padding(.trailing, 30)
-                    .padding(.vertical, 10)
-                    .foregroundColor(.white)
-                    .background(Color.green)
-                    .cornerRadius(10)
-//                    .padding(.trailing, 20)
+                    Text("6 Apr - 20 Apr 2023")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.green)
                 }
-
+                
+                HStack {
+                    Text("Event - ")
+                        .fontWeight(.bold)
+                        .font(.title2)
+                        .foregroundColor(Color.gray)
+                    
+                    Text("22 Apr 2023")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.black)
+                }
+                
+                HStack {
+                    Text("Location - ")
+                        .fontWeight(.bold)
+                        .font(.title2)
+                        .foregroundColor(Color.gray)
+                    
+                    Text("Kathmandu, Nepal")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.black)
+                }
             }
-            .frame(width: 450, height: 200)
-            .background(Color.purple)
-            .clipShape(RoundedRectangle(cornerRadius: 80))
+            .padding(.bottom, 300)
+            .padding(.leading)
+        }
+            .edgesIgnoringSafeArea(.top)
     }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         SwiftUIView()
-            .previewLayout(PreviewLayout.fixed(width: 450, height: 200))
     }
 }
