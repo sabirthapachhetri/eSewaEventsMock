@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FeaturedEventsDetailedViewController: UITableViewController {
     
@@ -15,7 +16,10 @@ class FeaturedEventsDetailedViewController: UITableViewController {
         super.viewDidLoad()
         
         // Image View
-        let imageView = UIImageView(image: UIImage(named: "ludovico"))
+        let imageView = UIImageView()
+        if let url = URL(string: eventData?.images?.first?.url ?? "") {
+            imageView.kf.setImage(with: url)
+        }
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
